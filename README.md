@@ -15,7 +15,7 @@ AI and software consultancy serving Melbourne and Victoria from Geelong.
 
 ## What's here
 
-### `brand-system/`
+### `skills/brand-system/`
 
 A complete brand system written for a model to execute rather than a human to interpret:
 design tokens, voice guide, compositional devices, print vs screen modes, real reference
