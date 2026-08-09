@@ -1,0 +1,140 @@
+/* ============================================================
+   EM Brand — Typography
+   Two typefaces. Both free Google Fonts. Both serious workhorses.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family={{DISPLAY_FONT}}:wght@300;400;500;600;700;800;900&family={{BODY_FONT}}:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --brand-font-display: '{{DISPLAY_FONT}}', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --brand-font-body:    '{{BODY_FONT}}', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --brand-fw-light:     300;
+  --brand-fw-regular:   400;
+  --brand-fw-medium:    500;
+  --brand-fw-semibold:  600;
+  --brand-fw-bold:      700;
+  --brand-fw-black:     900;
+}
+
+/* ============================================================
+   How EM uses type — what makes it feel premium
+
+   Lean light-and-large rather than bold-and-medium.
+   Confidence by air, not by weight.
+
+   Big editorial moments: {{DISPLAY_FONT}} Light at 56-120pt.
+     One per page. Confident, generous letter-spacing (-0.04em).
+   Standard headings: {{DISPLAY_FONT}} SemiBold at scale.
+   Body: {{BODY_FONT}} Regular at 16-17px, line-height 1.5-1.6.
+   Eyebrows: {{BODY_FONT}} SemiBold uppercase, 12px, letter-spacing 0.18em.
+
+   Sentence case is the default for headlines.
+   Lowercase works well for editorial hero moments — use when it
+   reads as confident, not when it reads as mannered.
+   ALL CAPS reserved for tiny eyebrow tags only.
+   ============================================================ */
+
+/* ============================================================
+   EDITORIAL DISPLAY SCALE
+   For the moments that need to land — covers, section openers,
+   single typographic statements. Use sparingly.
+   ============================================================ */
+
+.em-display-mega {
+  font-family: var(--brand-font-display);
+  font-weight: var(--brand-fw-light);
+  font-size: clamp(72px, 14vw, 240px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.em-display-xl {
+  font-family: var(--brand-font-display);
+  font-weight: var(--brand-fw-light);
+  font-size: clamp(56px, 9vw, 160px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.em-display-lg {
+  font-family: var(--brand-font-display);
+  font-weight: var(--brand-fw-regular);
+  font-size: clamp(40px, 6vw, 96px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+}
+
+/* ============================================================
+   STRUCTURAL HEADINGS
+   Default scale for content pages, section heads.
+   ============================================================ */
+
+.em-h1 { font: var(--brand-fw-semibold) 44px/50px var(--brand-font-display); letter-spacing: -1px; }
+.em-h2 { font: var(--brand-fw-semibold) 36px/45px var(--brand-font-display); letter-spacing: -0.5px; }
+.em-h3 { font: var(--brand-fw-semibold) 28px/32px var(--brand-font-display); }
+.em-h4 { font: var(--brand-fw-semibold) 22px/28px var(--brand-font-display); }
+.em-h5 { font: var(--brand-fw-semibold) 18px/24px var(--brand-font-display); }
+.em-h6 { font: var(--brand-fw-semibold) 16px/20px var(--brand-font-display); }
+
+/* ============================================================
+   BODY
+   ============================================================ */
+
+.em-body-lead { font: var(--brand-fw-regular) 18px/32px var(--brand-font-body); }
+.em-body      { font: var(--brand-fw-regular) 16px/26px var(--brand-font-body); }
+.em-body-sm   { font: var(--brand-fw-regular) 14px/22px var(--brand-font-body); }
+.em-button    { font: var(--brand-fw-semibold) 18px/24px var(--brand-font-body); }
+
+/* ============================================================
+   EYEBROW
+   The small uppercase tag above headlines — orange, letter-spaced.
+   "What we make" / "How we work" / "Capability one-pager"
+   ============================================================ */
+
+.em-eyebrow {
+  font-family: var(--brand-font-body);
+  font-size: 12px;
+  font-weight: var(--brand-fw-semibold);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brand-orange);
+}
+
+.em-eyebrow-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: var(--brand-fw-semibold) 12px/1 var(--brand-font-body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+}
+.em-eyebrow-rule::before {
+  content: '';
+  width: 32px; height: 2px;
+  background: currentColor;
+}
+
+/* ============================================================
+   THE ONE-WORD-ORANGE PATTERN
+   Wrap one word per headline in orange.
+   Optional, not mandatory. Use when the word carries the argument.
+
+   Examples:
+     "We build the smarter enterprise."  → "smarter" orange
+     "AI strategy that survives reality." → "survives reality" orange
+     "Crafting custom digital solutions since 2014." → "since 2014" orange
+   ============================================================ */
+
+.em-accent { color: var(--brand-orange); }
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+
+@media print {
+  body { font-family: var(--brand-font-body); font-size: 10.5pt; line-height: 1.55; color: #0A0A0A; }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--brand-font-display); font-weight: 600; color: #000; }
+}

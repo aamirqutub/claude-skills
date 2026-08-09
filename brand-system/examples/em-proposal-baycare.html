@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposal — BayCare Health Network · AI Triage</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     EM PROPOSAL — BayCare Health Network · AI Triage
+     4 pages, 4 compositions, one DNA.
+     - Tokens: orange #F75B00, ink #0A0A0A, charcoal #141416
+     - Fonts: Figtree (display) / Inter (body)
+     - No gradients. Restrained orange. Generous space.
+     ============================================================ */
+
+  :root {
+    --orange: #F75B00;
+    --orange-deep: #C44800;
+    --ink: #0A0A0A;
+    --ink-soft: #4A4A52;
+    --ink-muted: #7B7B82;
+    --charcoal: #141416;
+    --charcoal-2: #1F1F23;
+    --charcoal-3: #2A2A2F;
+    --page: #FFFFFF;
+    --page-soft: #F7F7F9;
+    --page-warm: #FAFAFA;
+    --rule-soft: #E8E8EC;
+    --rule-mid: #C8C8CC;
+    --rule-dark: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: #DDD;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* A4 portrait — 210mm x 297mm */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--page);
+    margin: 12px auto;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; }
+  }
+
+  /* Universal C-mark badge for headers/footers */
+  .mark-svg { width: 100%; height: 100%; display: block; }
+
+  /* Universal page footer for content pages */
+  .page-foot {
+    position: absolute;
+    bottom: 14mm;
+    left: 18mm;
+    right: 18mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Figtree', sans-serif;
+    font-size: 9pt;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    z-index: 10;
+  }
+  .page-foot .pg {
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.18em;
+  }
+
+  .universal-corner {
+    position: absolute;
+    top: 14mm;
+    left: 18mm;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+  }
+  .universal-corner .mark {
+    width: 28px; height: 28px;
+    background: var(--orange);
+    border-radius: 6px;
+    display: grid; place-items: center;
+  }
+  .universal-corner .mark svg { width: 18px; height: 18px; fill: white; }
+  .universal-corner strong {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+
+  /* ============================================================
+     PAGE 1 — COVER
+     Composition: editorial cover. Mostly white. Big lowercase Figtree light.
+     One typographic moment. C-mark used as a confident accent.
+     Bottom band with metadata.
+     ============================================================ */
+
+  .cover {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 18mm;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .cover-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-brand .mark-tile {
+    width: 44px; height: 44px;
+    background: var(--orange);
+    border-radius: 10px;
+    display: grid; place-items: center;
+  }
+  .cover-brand .mark-tile svg { width: 28px; height: 28px; fill: white; }
+  .cover-brand .brand-name {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 14pt;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .cover-meta-tr {
+    text-align: right;
+    font-family: 'Figtree', sans-serif;
+    font-size: 9pt;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+  .cover-meta-tr .doc-type {
+    display: inline-block;
+    padding: 5px 12px;
+    background: var(--page-soft);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+
+  .cover-body {
+    align-self: end;
+    padding-bottom: 30mm;
+  }
+  .cover-prepared {
+    font-family: 'Figtree', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cover-prepared::before {
+    content: '';
+    width: 32px; height: 2px;
+    background: currentColor;
+  }
+
+  .cover-h1 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 300;
+    font-size: 76pt;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    max-width: 14ch;
+  }
+  .cover-h1 .accent {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .cover-sub {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    max-width: 50ch;
+    letter-spacing: -0.01em;
+  }
+
+  .cover-foot {
+    border-top: 1px solid var(--ink);
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 9pt;
+  }
+  .cover-foot__col .lbl {
+    font-weight: 600;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .cover-foot__col .val {
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     PAGE 2 — THE OPPORTUNITY
+     Composition: editorial long-form. 2-column layout for reading.
+     One pull-quote moment. One stat callout. Photo-ish C-mark
+     graphic on the right column.
+     ============================================================ */
+
+  .opportunity {
+    padding: 26mm 18mm 22mm 18mm;
+  }
+  .opp-eyebrow {
+    font-family: 'Figtree', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .opp-eyebrow::before {
+    content: '';
+    width: 32px; height: 2px;
+    background: currentColor;
+  }
+  .opp-h2 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 36pt;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 16ch;
+  }
+
+  .opp-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .opp-col h3 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 13pt;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .opp-col p {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  .opp-pull {
+    grid-column: span 2;
+    margin: 12px 0 16px 0;
+    padding: 18px 24px;
+    border-left: 3px solid var(--orange);
+  }
+  .opp-pull blockquote {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 400;
+    font-size: 18pt;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 60ch;
+  }
+  .opp-pull cite {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Figtree', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .opp-stats {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .opp-stat .num {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 300;
+    font-size: 36pt;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .opp-stat .num .accent { color: var(--orange); font-weight: 600; }
+  .opp-stat .lbl {
+    font-family: 'Figtree', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .opp-recommendation {
+    grid-column: span 2;
+    margin-top: 20px;
+  }
+  .opp-recommendation h3 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 13pt;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .opp-recommendation p {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 75ch;
+  }
+
+  /* ============================================================
+     PAGE 3 — HOW WE'LL DELIVER
+     Composition: structure-heavy. Phases as horizontal strip.
+     Deliverables grid below. Team band at the bottom.
+     Some dark-ink section to break monotony.
+     ============================================================ */
+
+  .delivery {
+    padding: 26mm 18mm 22mm 18mm;
+    background: var(--page);
+  }
+  .delivery-h2 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 32pt;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 6px;
+    max-width: 16ch;
+  }
+  .delivery-h2 .accent { color: var(--orange); }
+  .delivery-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    max-width: 65ch;
+  }
+
+  /* Phase strip */
+  .phases {
+    margin-bottom: 22px;
+  }
+  .phase-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+  .phase-track::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 24px; right: 24px;
+    height: 1px;
+    background: var(--rule-mid);
+  }
+  .phase {
+    text-align: left;
+    position: relative;
+  }
+  .phase-disc {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--page);
+    border: 1px solid var(--rule-mid);
+    display: grid; place-items: center;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    color: var(--ink);
+  }
+  .phase:nth-child(1) .phase-disc {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: white;
+  }
+  .phase-name {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .phase-week {
+    font-family: 'Figtree', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .phase-deliverables {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .phase-deliverables li {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding: 3px 0 3px 12px;
+    position: relative;
+  }
+  .phase-deliverables li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 4px; height: 4px;
+    background: var(--ink);
+    border-radius: 1px;
+  }
+
+  /* Scope highlight section */
+  .scope-band {
+    background: var(--ink);
+    color: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .scope-band h3 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 16pt;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: white;
+  }
+  .scope-band p {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.7);
+  }
+  .scope-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: 16px;
+  }
+  .scope-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    padding: 4px 0 4px 14px;
+    position: relative;
+    break-inside: avoid;
+  }
+  .scope-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
+  /* Team band */
+  .team {
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 20px;
+  }
+  .team-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+  }
+  .team-eyebrow {
+    font-family: 'Figtree', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .team-member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .team-member .av {
+    width: 36px; height: 36px;
+    background: var(--charcoal);
+    color: white;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    flex-shrink: 0;
+  }
+  .team-member .info {
+    line-height: 1.3;
+  }
+  .team-member .name {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 9.5pt;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .team-member .role {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+  }
+
+  /* ============================================================
+     PAGE 4 — INVESTMENT & NEXT STEPS
+     Composition: most restrained. Pricing card. Terms in fine print.
+     A clear next-step CTA. Contact.
+     ============================================================ */
+
+  .investment {
+    padding: 26mm 18mm 22mm 18mm;
+    background: var(--page);
+  }
+  .inv-eyebrow {
+    font-family: 'Figtree', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .inv-eyebrow::before {
+    content: '';
+    width: 32px; height: 2px;
+    background: currentColor;
+  }
+  .inv-h2 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 36pt;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .inv-h2 .accent { color: var(--orange); }
+  .inv-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    max-width: 60ch;
+  }
+
+  /* Pricing card */
+  .price-card {
+    background: var(--page);
+    border: 1px solid var(--ink);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .price-head {
+    background: var(--ink);
+    color: white;
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .price-head .lbl {
+    font-family: 'Figtree', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .price-head .price {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 300;
+    font-size: 38pt;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: white;
+  }
+  .price-head .price .currency {
+    font-size: 0.55em;
+    color: rgba(255,255,255,0.65);
+    margin-right: 4px;
+    vertical-align: super;
+  }
+  .price-head .price .gst {
+    font-size: 0.3em;
+    color: rgba(255,255,255,0.5);
+    margin-left: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .price-body {
+    padding: 0;
+  }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr 90px 100px;
+    padding: 14px 28px;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .price-row:last-of-type { border-bottom: 0; }
+  .price-row .item {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--ink);
+  }
+  .price-row .item .sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .price-row .weeks {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+  .price-row .amount {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    color: var(--ink);
+    text-align: right;
+    letter-spacing: -0.01em;
+  }
+  .price-foot {
+    background: var(--page-soft);
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .price-foot .lbl {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .price-foot .val {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 14pt;
+    color: var(--ink);
+  }
+
+  /* Terms in fine print */
+  .terms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .terms .term {
+    padding: 10px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .terms .term .lbl {
+    font-family: 'Figtree', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .terms .term .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* Next steps */
+  .next {
+    background: var(--charcoal);
+    color: white;
+    border-radius: 18px;
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .next h3 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 18pt;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    color: white;
+  }
+  .next h3 .accent { color: var(--orange); }
+  .next p {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    max-width: 50ch;
+  }
+  .next-cta {
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Signature line */
+  .signature {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .sig-block {
+    padding-top: 24px;
+    border-top: 1px solid var(--ink);
+  }
+  .sig-block .role {
+    font-family: 'Figtree', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .sig-block .name {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .sig-block .org {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1 — COVER
+     ============================================================ -->
+<section class="page cover">
+  <div class="cover-top">
+    <div class="cover-brand">
+      <span class="mark-tile">
+        <svg viewBox="0 0 450 463" xmlns="http://www.w3.org/2000/svg">
+          <path fill="white" d="M231.284 359.713C221.204 357.473 211.124 354.113 201.417 349.446C137.576 317.712 111.442 240.244 143.176 176.403C174.91 112.562 252.378 86.4282 316.219 118.162C331.899 126.002 345.153 136.456 355.98 148.776C376.887 125.816 405.448 111.815 435.502 108.082C426.168 93.1483 415.154 78.9614 401.901 65.8945C357.286 22.0271 301.472 0 234.458 0C167.443 0 111.816 22.0271 67.0148 65.8945C22.4006 109.762 0 165.016 0 231.284C0 297.552 22.4006 352.806 67.0148 396.674C111.629 440.541 167.443 462.568 234.458 462.568C235.578 462.568 236.698 462.568 237.818 462.568C221.951 431.581 218.778 394.62 231.284 360.087V359.713Z"/>
+          <circle fill="white" cx="265.442" cy="236.88" r="41.628"/>
+          <circle fill="white" cx="407.489" cy="236.88" r="41.628"/>
+        </svg>
+      </span>
+      <span class="brand-name">Enterprise Monkey</span>
+    </div>
+    <div class="cover-meta-tr">
+      <div class="doc-type">Proposal</div>
+      <div>Document EM-2026-0312<br>Confidential — for BayCare Health Network</div>
+    </div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-prepared">Prepared for BayCare Health Network</div>
+    <h1 class="cover-h1">
+      AI-powered triage for <span class="accent">eight clinics, one network.</span>
+    </h1>
+    <p class="cover-sub">
+      A 14-week build to consolidate patient triage across BayCare's network — replacing manual phone routing with an AI-led assessment that books the right appointment with the right clinician, the first time.
+    </p>
+  </div>
+
+  <div class="cover-foot">
+    <div class="cover-foot__col">
+      <div class="lbl">Prepared by</div>
+      <div class="val">Aamir Qutub<br>CEO, Enterprise Monkey</div>
+    </div>
+    <div class="cover-foot__col">
+      <div class="lbl">For</div>
+      <div class="val">Dr. Priya Mehta<br>Network Director, BayCare</div>
+    </div>
+    <div class="cover-foot__col">
+      <div class="lbl">Date</div>
+      <div class="val">8 May 2026<br>Valid 30 days</div>
+    </div>
+    <div class="cover-foot__col">
+      <div class="lbl">Investment</div>
+      <div class="val">$XXX,XXX + GST<br>Fixed scope, fixed price</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 2 — THE OPPORTUNITY
+     ============================================================ -->
+<section class="page opportunity">
+  <div class="universal-corner">
+    <div class="mark">
+      <svg viewBox="0 0 450 463" xmlns="http://www.w3.org/2000/svg">
+        <path fill="white" d="M231.284 359.713C221.204 357.473 211.124 354.113 201.417 349.446C137.576 317.712 111.442 240.244 143.176 176.403C174.91 112.562 252.378 86.4282 316.219 118.162C331.899 126.002 345.153 136.456 355.98 148.776C376.887 125.816 405.448 111.815 435.502 108.082C426.168 93.1483 415.154 78.9614 401.901 65.8945C357.286 22.0271 301.472 0 234.458 0C167.443 0 111.816 22.0271 67.0148 65.8945C22.4006 109.762 0 165.016 0 231.284C0 297.552 22.4006 352.806 67.0148 396.674C111.629 440.541 167.443 462.568 234.458 462.568C235.578 462.568 236.698 462.568 237.818 462.568C221.951 431.581 218.778 394.62 231.284 360.087V359.713Z"/>
+        <circle fill="white" cx="265.442" cy="236.88" r="41.628"/>
+        <circle fill="white" cx="407.489" cy="236.88" r="41.628"/>
+      </svg>
+    </div>
+    <strong>BayCare · AI Triage Proposal</strong>
+  </div>
+
+  <div class="opp-eyebrow">01 — The opportunity</div>
+  <h2 class="opp-h2">What we heard, and what we recommend.</h2>
+
+  <div class="opp-grid">
+    <div class="opp-col">
+      <h3>What you came to us with</h3>
+      <p>BayCare runs eight clinics across the Geelong region. Patient triage is currently handled by reception staff at each clinic — phone-based, manual, with significant variation in how acuity is assessed and which clinician a patient ends up with.</p>
+      <p>Three problems cost time and trust: appointments mis-booked at first contact (estimated 18% of urgent cases), reception staff burnout from triage decisions outside their training, and patients walking away from the booking process before they're scheduled.</p>
+    </div>
+    <div class="opp-col">
+      <h3>What we heard underneath that</h3>
+      <p>The harder problem isn't the workflow — it's the inconsistency. Network-wide, your clinicians can't trust that the appointment in front of them was correctly triaged. That breaks downstream scheduling, escalation paths, and clinical confidence.</p>
+      <p>An AI-led triage layer needs to do two things: get the assessment right at first contact, and create an auditable trail every clinician trusts.</p>
+    </div>
+
+    <div class="opp-pull">
+      <blockquote>"We don't have a booking problem. We have a confidence problem. By the time a patient sees a clinician, no one's sure the right person is in the room."</blockquote>
+      <cite>Dr. Priya Mehta · Network Director, BayCare · Discovery workshop, 24 April 2026</cite>
+    </div>
+
+    <div class="opp-stats">
+      <div class="opp-stat">
+        <div class="num">18<span class="accent">%</span></div>
+        <div class="lbl">Of urgent cases<br>currently mis-routed at booking</div>
+      </div>
+      <div class="opp-stat">
+        <div class="num">8</div>
+        <div class="lbl">Clinics in scope<br>across the BayCare network</div>
+      </div>
+      <div class="opp-stat">
+        <div class="num">14<span class="accent">wk</span></div>
+        <div class="lbl">From kickoff to live<br>across the full network</div>
+      </div>
+    </div>
+
+    <div class="opp-recommendation">
+      <h3>Our recommendation</h3>
+      <p>An AI triage assistant integrated into BayCare's existing booking flow. Patients describe symptoms in their own language; the model assesses acuity using a clinician-validated framework, books the appropriate appointment type with the right clinician, and writes an auditable triage note that arrives in the clinician's view before the appointment. Three-month post-launch tuning included so the model improves on BayCare's actual case mix, not synthetic data.</p>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>Enterprise Monkey · BayCare AI Triage</span>
+    <span class="pg">02 / 04</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 3 — HOW WE'LL DELIVER
+     ============================================================ -->
+<section class="page delivery">
+  <div class="universal-corner">
+    <div class="mark">
+      <svg viewBox="0 0 450 463" xmlns="http://www.w3.org/2000/svg">
+        <path fill="white" d="M231.284 359.713C221.204 357.473 211.124 354.113 201.417 349.446C137.576 317.712 111.442 240.244 143.176 176.403C174.91 112.562 252.378 86.4282 316.219 118.162C331.899 126.002 345.153 136.456 355.98 148.776C376.887 125.816 405.448 111.815 435.502 108.082C426.168 93.1483 415.154 78.9614 401.901 65.8945C357.286 22.0271 301.472 0 234.458 0C167.443 0 111.816 22.0271 67.0148 65.8945C22.4006 109.762 0 165.016 0 231.284C0 297.552 22.4006 352.806 67.0148 396.674C111.629 440.541 167.443 462.568 234.458 462.568C235.578 462.568 236.698 462.568 237.818 462.568C221.951 431.581 218.778 394.62 231.284 360.087V359.713Z"/>
+        <circle fill="white" cx="265.442" cy="236.88" r="41.628"/>
+        <circle fill="white" cx="407.489" cy="236.88" r="41.628"/>
+      </svg>
+    </div>
+    <strong>BayCare · AI Triage Proposal</strong>
+  </div>
+
+  <div class="opp-eyebrow">02 — How we'll deliver</div>
+  <h2 class="delivery-h2">A 14-week build, in <span class="accent">four phases.</span></h2>
+  <p class="delivery-sub">Mapped to our 6D Process. Each phase ends with a specific decision-grade deliverable so BayCare clinical leadership stays in the loop without being in the build.</p>
+
+  <div class="phases">
+    <div class="phase-track">
+      <div class="phase">
+        <div class="phase-disc">1</div>
+        <div class="phase-name">Discover &amp; Define</div>
+        <div class="phase-week">Weeks 1–3</div>
+        <ul class="phase-deliverables">
+          <li>Clinical workshops × 4</li>
+          <li>Triage framework v1</li>
+          <li>Integration spec</li>
+          <li>Success metrics signed off</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="phase-disc">2</div>
+        <div class="phase-name">Design &amp; Prototype</div>
+        <div class="phase-week">Weeks 4–6</div>
+        <ul class="phase-deliverables">
+          <li>Patient-facing UX</li>
+          <li>Clinician dashboard</li>
+          <li>Working prototype</li>
+          <li>Clinical validation round 1</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="phase-disc">3</div>
+        <div class="phase-name">Develop &amp; Integrate</div>
+        <div class="phase-week">Weeks 7–11</div>
+        <ul class="phase-deliverables">
+          <li>RAG pipeline build</li>
+          <li>Booking-system integration</li>
+          <li>Audit trail + clinical notes</li>
+          <li>UAT with 2 pilot clinics</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="phase-disc">4</div>
+        <div class="phase-name">Deploy &amp; Drive</div>
+        <div class="phase-week">Weeks 12–14 + 90 days</div>
+        <ul class="phase-deliverables">
+          <li>Network-wide rollout</li>
+          <li>Reception staff training</li>
+          <li>90-day model tuning</li>
+          <li>Quarterly clinical review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="scope-band">
+    <div>
+      <h3>What's in scope.</h3>
+      <p>A complete AI triage layer integrated into BayCare's existing patient-facing booking flow and clinician scheduling system. Includes 90 days of post-launch tuning.</p>
+    </div>
+    <ul class="scope-list">
+      <li>AI triage assistant (web + mobile)</li>
+      <li>Clinician-validated acuity framework</li>
+      <li>Booking system integration</li>
+      <li>Auditable clinical note generation</li>
+      <li>Clinician dashboard</li>
+      <li>Multi-clinic configuration</li>
+      <li>Reception staff training (8 sessions)</li>
+      <li>90-day model tuning &amp; review</li>
+    </ul>
+  </div>
+
+  <div class="team">
+    <div class="team-head">
+      <div class="team-eyebrow">Your delivery team</div>
+      <div style="font-family:'Inter',sans-serif;font-size:9pt;color:var(--ink-muted);">Senior-led from kickoff to launch</div>
+    </div>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="av">AQ</div>
+        <div class="info">
+          <div class="name">Aamir Qutub</div>
+          <div class="role">Engagement lead</div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="av">JB</div>
+        <div class="info">
+          <div class="name">Jordan Blake</div>
+          <div class="role">Strategy director</div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="av">SC</div>
+        <div class="info">
+          <div class="name">Sam Carter</div>
+          <div class="role">Lead AI engineer</div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="av">TQ</div>
+        <div class="info">
+          <div class="name">Taylor Quinn</div>
+          <div class="role">UX lead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>Enterprise Monkey · BayCare AI Triage</span>
+    <span class="pg">03 / 04</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 4 — INVESTMENT & NEXT STEPS
+     ============================================================ -->
+<section class="page investment">
+  <div class="universal-corner">
+    <div class="mark">
+      <svg viewBox="0 0 450 463" xmlns="http://www.w3.org/2000/svg">
+        <path fill="white" d="M231.284 359.713C221.204 357.473 211.124 354.113 201.417 349.446C137.576 317.712 111.442 240.244 143.176 176.403C174.91 112.562 252.378 86.4282 316.219 118.162C331.899 126.002 345.153 136.456 355.98 148.776C376.887 125.816 405.448 111.815 435.502 108.082C426.168 93.1483 415.154 78.9614 401.901 65.8945C357.286 22.0271 301.472 0 234.458 0C167.443 0 111.816 22.0271 67.0148 65.8945C22.4006 109.762 0 165.016 0 231.284C0 297.552 22.4006 352.806 67.0148 396.674C111.629 440.541 167.443 462.568 234.458 462.568C235.578 462.568 236.698 462.568 237.818 462.568C221.951 431.581 218.778 394.62 231.284 360.087V359.713Z"/>
+        <circle fill="white" cx="265.442" cy="236.88" r="41.628"/>
+        <circle fill="white" cx="407.489" cy="236.88" r="41.628"/>
+      </svg>
+    </div>
+    <strong>BayCare · AI Triage Proposal</strong>
+  </div>
+
+  <div class="inv-eyebrow">03 — Investment &amp; next steps</div>
+  <h2 class="inv-h2">Fixed scope. <span class="accent">Fixed price.</span></h2>
+  <p class="inv-sub">Milestone-based payments. No surprises in invoices, no scope ambiguity. The 90-day post-launch tuning is included in this number, not billed separately.</p>
+
+  <div class="price-card">
+    <div class="price-head">
+      <div class="lbl">Total investment</div>
+      <div class="price"><span class="currency">$</span>XXX,XXX<span class="gst"> + GST</span></div>
+    </div>
+    <div class="price-body">
+      <div class="price-row">
+        <div class="item">Phase 1 — Discover &amp; Define
+          <span class="sub">Workshops, framework, integration spec, sign-off</span>
+        </div>
+        <div class="weeks">3 weeks</div>
+        <div class="amount">$XX,XXX</div>
+      </div>
+      <div class="price-row">
+        <div class="item">Phase 2 — Design &amp; Prototype
+          <span class="sub">UX, clinician dashboard, working prototype, validation</span>
+        </div>
+        <div class="weeks">3 weeks</div>
+        <div class="amount">$XX,XXX</div>
+      </div>
+      <div class="price-row">
+        <div class="item">Phase 3 — Develop &amp; Integrate
+          <span class="sub">RAG pipeline, integration, audit trail, UAT</span>
+        </div>
+        <div class="weeks">5 weeks</div>
+        <div class="amount">$XX,XXX</div>
+      </div>
+      <div class="price-row">
+        <div class="item">Phase 4 — Deploy &amp; Drive
+          <span class="sub">Rollout, training, 90-day tuning, quarterly review</span>
+        </div>
+        <div class="weeks">3 weeks + 90 days</div>
+        <div class="amount">$XX,XXX</div>
+      </div>
+    </div>
+    <div class="price-foot">
+      <div class="lbl">Total ex GST</div>
+      <div class="val">AUD $XXX,XXX</div>
+    </div>
+  </div>
+
+  <div class="terms">
+    <div class="term">
+      <div class="lbl">Payment</div>
+      <div class="val">Staged payments on signing and at each phase completion.</div>
+    </div>
+    <div class="term">
+      <div class="lbl">Variations</div>
+      <div class="val">Out-of-scope work quoted separately. Approved before commencing.</div>
+    </div>
+    <div class="term">
+      <div class="lbl">IP &amp; data</div>
+      <div class="val">All IP transfers to BayCare on final payment. ISO 27001 compliant.</div>
+    </div>
+  </div>
+
+  <div class="next">
+    <div>
+      <h3>Ready when you are. <span class="accent">Let's start.</span></h3>
+      <p>Sign and return one copy of this proposal, or reply with questions. We can be in your kickoff workshop within two weeks of signing.</p>
+    </div>
+    <a href="https://enterprisemonkey.com.au" class="next-cta">Accept proposal →</a>
+  </div>
+
+  <div class="signature">
+    <div class="sig-block">
+      <div class="role">For BayCare Health Network</div>
+      <div class="name">Dr. Priya Mehta</div>
+      <div class="org">Network Director · Date:</div>
+    </div>
+    <div class="sig-block">
+      <div class="role">For Enterprise Monkey</div>
+      <div class="name">Aamir Qutub</div>
+      <div class="org">CEO &amp; Founder · Date:</div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span>enterprisemonkey.com.au</span>
+    <span class="pg">04 / 04</span>
+  </div>
+</section>
+
+</body>
+</html>

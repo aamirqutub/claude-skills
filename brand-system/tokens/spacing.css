@@ -1,0 +1,51 @@
+/* ============================================================
+   EM Brand — Spacing & Motion
+   8px grid. Generous breathing space.
+   ============================================================ */
+
+:root {
+  /* 8px grid */
+  --brand-space-1:   8px;
+  --brand-space-2:  16px;
+  --brand-space-3:  24px;
+  --brand-space-4:  32px;
+  --brand-space-5:  40px;
+  --brand-space-6:  48px;
+  --brand-space-7:  56px;
+  --brand-space-8:  64px;
+  --brand-space-9:  72px;
+  --brand-space-10: 80px;
+  --brand-space-12: 96px;
+  --brand-space-16: 128px;
+  --brand-space-20: 160px;
+  --brand-space-24: 192px;
+
+  /* Section padding — editorial wants more breath than the 8px grid suggests */
+  --brand-section-pad-desktop: 120px;
+  --brand-section-pad-tablet:  80px;
+  --brand-section-pad-mobile:  56px;
+
+  /* Containers */
+  --brand-container-max:     1280px;
+  --brand-container-narrow:   720px;
+  --brand-container-wide:    1440px;
+
+  /* Radius — more generous than v1, less than buttons */
+  --brand-radius-sm:   6px;
+  --brand-radius:     12px;
+  --brand-radius-lg:  24px;
+  --brand-radius-xl:  40px;
+  --brand-radius-pill: 9999px;
+
+  /* Elevation */
+  --brand-shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+  --brand-shadow:     0 8px 24px rgba(0,0,0,0.08);
+  --brand-shadow-lg:  0 24px 60px rgba(0,0,0,0.12);
+
+  /* Motion (screen-only — never animate in print) */
+  --brand-ease-lenis: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --brand-ease-snap:  cubic-bezier(0.32, 0.72, 0, 1);
+  --brand-dur-fast:   180ms;
+  --brand-dur-base:   320ms;
+  --brand-dur-slow:   600ms;
+}

@@ -1,0 +1,113 @@
+/* ============================================================
+   EM Brand — Colour Tokens
+   The palette is intentionally tight. Restraint is the brand.
+   The discipline is in WHERE you use each colour, not in adding more.
+   ============================================================ */
+
+:root {
+  /* The five canonical brand colours */
+  --brand-orange:       {{BRAND_ACCENT}};     /* The signature accent. Surgical use only. */
+  --brand-ink:          #0A0A0A;     /* Body text. Near-black, slightly softer than pure. */
+  --brand-ink-soft:     #4A4A52;     /* Captions, subheadings, secondary text */
+  --brand-page-muted:   #DFDFDF;     /* Card backgrounds, dividers, low-emphasis surfaces */
+  --brand-page:         #FFFFFF;     /* Default page background */
+
+  /* Working extensions (derived, not new brand colours) */
+  --brand-ink-deep:     #000000;     /* Pure black — logos and absolute-emphasis only */
+  --brand-ink-muted:    #7B7B82;     /* Helper text, placeholder labels */
+  --brand-page-soft:    #F7F7F9;     /* Subtle alternating surface */
+  --brand-page-warm:    #FAFAFA;     /* Slightly warmer alternative to page-soft */
+  --brand-charcoal:     #141416;     /* Dark canvas — hero panels, contrast sections */
+  --brand-charcoal-2:   #1F1F23;     /* Charcoal alternate, second-tier dark surface */
+  --brand-charcoal-3:   #2A2A2F;     /* Lightest dark — for vignettes and depth */
+  --brand-orange-deep:  #C44800;     /* Hover state for orange CTAs */
+  --brand-rule-soft:    #E8E8EC;     /* Hairlines, table dividers on light */
+  --brand-rule-mid:     #C8C8CC;     /* Stronger rule for emphasis */
+  --brand-rule-dark:    rgba(255,255,255,0.08); /* Rule on dark surfaces */
+}
+
+/* ============================================================
+   How EM uses colour — observed in actual EM work, not theory.
+   These are descriptions of what looks great. Not rules to follow.
+
+   Documents (proposals, capability statements, credentials):
+     ~70% white canvas
+     ~20% near-black text (--brand-ink)
+     ~7% cool grey for cards / alternating sections
+     ~3% orange (one accent word, one CTA, one device)
+
+   Heroes, social tiles, covers:
+     ~50% black or charcoal canvas
+     ~40% white type
+     ~10% orange — but typically as ONE bold moment (CTA, accent word)
+
+   Web (production site):
+     White-canvas sections alternating with charcoal contrast bands
+     Orange for accents, links, CTAs
+
+   The principle: orange is a wayfinder, not a wall.
+   When orange appears 15 times on a page, it stops meaning anything.
+   When it appears 2-3 times — and they're chosen — it becomes the
+   strongest signal you have.
+
+   That's the move. Be surgical with orange.
+   ============================================================ */
+
+/* ============================================================
+   Combinations that work
+   ============================================================ */
+
+/*
+  Default document (cover, content pages)
+    Page: --brand-page
+    Body text: --brand-ink
+    Headlines: --brand-ink (with one orange accent word)
+    Captions: --brand-ink-soft
+    Eyebrow tags: --brand-orange
+    CTA: --brand-orange background, white text
+
+  Dark hero (one-pager covers, screen heroes, contrast sections)
+    Background: --brand-charcoal
+    Body: rgba(255,255,255,0.7)
+    Headlines: white (with one orange accent word)
+    Eyebrow tags: rgba(255,255,255,0.85) on neutral pill background
+
+  Stat panel
+    Background: --brand-page-soft
+    Numerals: --brand-ink with optional --brand-orange suffix
+    Labels: --brand-ink-soft uppercase
+
+  Pull quote
+    Body: --brand-ink in {{DISPLAY_FONT}} light
+    Border-left: --brand-orange, 3-4px
+    Citation: --brand-ink-muted uppercase letter-spaced
+
+  Pricing card
+    Header: --brand-charcoal background, white type, total in big {{DISPLAY_FONT}} light
+    Body: white, alternating phase rows
+    Foot: --brand-page-soft, total restated
+
+  Closing/CTA panel
+    Background: --brand-charcoal
+    Headline: white with one orange accent
+    CTA button: solid --brand-orange
+*/
+
+/* ============================================================
+   Accessibility (WCAG AA minimums)
+   ============================================================ */
+
+/*
+   --brand-ink on --brand-page                  21:1     AAA
+   --brand-ink on --brand-page-muted            ~16:1    AAA
+   --brand-ink-deep on white                 21:1     AAA
+   --brand-orange on white                   4.65:1   AA passes for ≥18px headings
+                                                   FAILS for body copy under 18px
+   White on --brand-orange                   4.51:1   AA passes for buttons (large)
+                                                   borderline for small UI
+   --brand-page-muted as text on white       1.27:1   FAILS — never use as text
+   --brand-ink-soft on --brand-page-muted       5.85:1   AA — keep for headings only
+
+   Body copy is always --brand-ink on --brand-page (or white on charcoal).
+   Orange for accents only. Never for body.
+*/
